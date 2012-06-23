@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <h:form id="form">
+        <h:panelGrid columns="3">
+
+            <h:outputText value="#{msg.nazwa}" />
+            <h:inputText id="nazwa" value="#{osrodekWeb.osrodek.nazwa}" size="60">
+                <f:validateRequired />
+            </h:inputText>
+            <h:messages for="nazwa" style="color:red" />
+            
+            <h:outputText value="#{msg.kursy}" />
+            <h:inputText id="kursy" value="#{osrodekWeb.osrodek.kursy}" size="60" >
+                <f:validateRequired />
+            </h:inputText>
+            <h:messages for="kursy" style="color:red" />
+            
+            <h:outputText value="#{msg.liczbaKursantow}" />
+            <h:inputText id="liczbaKursantow" value="#{osrodekWeb.osrodek.liczbaKursantow}" size="10" >
+                <f:validateRequired />
+            </h:inputText>
+            <h:messages for="liczbaKursantow" style="color:red" />
+        </h:panelGrid>
+        <p>
+            <h:commandButton value="#{msg.save}" action="#{osrodekWeb.saveOsrodek()}" />
+        </p>
+    </h:form>
+</ui:composition>
+

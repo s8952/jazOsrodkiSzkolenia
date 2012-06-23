@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/default.xhtml">
+
+    <ui:define name="content">
+        <p>
+            <h:form>
+                <h:dataTable value="#{osrodekWeb.osrodki}" var="item">
+                <f:facet name="header">#{msg.osrodki}</f:facet>
+
+                <h:column>
+                    <f:facet name="header">#{msg.nazwa}</f:facet>
+                    <h:commandLink value="#{item.nazwa}" action="#{osrodekWeb.showOsrodek()}"/>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">#{msg.action}</f:facet>
+                    <h:commandLink value="#{msg.actionEdit}" action="#{osrodekWeb.editOsrodek()}"/>, 
+                    <h:commandLink value="#{msg.actionDelete}" action="#{osrodekWeb.deleteOsrodek()}"/>
+                </h:column>
+            </h:dataTable>
+            <p>
+                <h:commandLink value="#{msg.addOsrodek}" action="#{osrodekWeb.addOsrodek()}" />
+            </p>
+            </h:form>
+        </p>
+    </ui:define>
+</ui:composition>
